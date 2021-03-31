@@ -15,13 +15,8 @@ export const flexCenter = css`
   align-items: center;
 `;
 
-export const flexBetween = css`
+export const flexBetweenStart = css`
   display: flex;
   justify-content: space-between;
-  align-items: center;
-`;
-
-export const flexAlign = css`
-  display: flex;
-  align-items: center;
+  align-items: flex-start
 `;
