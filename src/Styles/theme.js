@@ -1,12 +1,10 @@
 import { css } from 'styled-components';
 
 const theme = {
-  widthWeb: '1400px',
-  widthMobile: '720px',
-  gray0: '#F4F4F4',
-  gray1: '#B0B0B0',
-  gray2: '#636363',
-  transition: 'all .3s ease',
+  webWidth: '1200px',
+  gray1: "rgba(58, 58, 58, 0.7)",
+  gray2: "rgba(58, 58, 58, 0.8)",
+  black: "rgb(58, 58, 58)"
 }
 
 export default theme;

@@ -12,7 +12,6 @@ function Routes() {
       <GlobalReset />
         <Switch>
           <Route exact path="/" component={Main} />
-
         </Switch>
       </ThemeProvider>
     </Router>
