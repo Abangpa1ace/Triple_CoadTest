@@ -1,8 +1,10 @@
 import React, { useEffect, useState, useCallback } from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { Paragraph } from '../../../Shared/StyledTags';
-import { flexBetweenStart, flexCenter } from '../../../Styles/theme';
 import { achieveTripInfo } from '../MainData';
+import { anifadeDown, flexBetweenStart, flexCenter } from '../../../Styles/theme';
+
+const DURATION = 7000;
 
 const SectionAchieve = () => {
   console.log('render');
@@ -15,14 +17,14 @@ const SectionAchieve = () => {
 
   const raiseTripCount = useCallback(
     (key, max) => {
+      const stepTime = DURATION / max;
       const intervalCount = setInterval(() => {
         if (tripCount[key] < max) {
           setTripCount({
             ...tripCount,
             [key]: tripCount[key] += 1,
           })
-        }
-      }, 10)
+        }}, stepTime)
       return () => clearInterval(intervalCount);
     }, []
   )
@@ -46,7 +48,7 @@ const SectionAchieve = () => {
           </Paragraph>
         </AchieveImage>
         <AchieveText>
-          <AchieveCounter>
+          <AchieveCounter aniDelay=".1s">
             {Object.keys(achieveTripInfo).map((key) => {
               const { desc } = achieveTripInfo[key];
               return (
@@ -60,7 +62,7 @@ const SectionAchieve = () => {
               )
             })}
           </AchieveCounter>
-          <AchieveAwards>
+          <AchieveAwards aniDelay=".2s">
             <AwardsItem src={"/Image/play-store@2x.png"}>
               <Paragraph
                 color={({ theme }) => theme.gray2}
@@ -96,12 +98,14 @@ const AchieveWrapper = styled.div`
   ${flexBetweenStart};
   width: 1040px;
   margin: 0 auto;
-
 `;
 
 const AchieveImage = styled.div`
+  ${anifadeDown};
   width: 400px;
   text-align: center;
+  visibility: hidden;
+  opacity: 0;
 
   img {
     width: 100%;
@@ -112,11 +116,19 @@ const AchieveText = styled.div`
   margin: 0 0 0 40px;
 `;
 
-const AchieveCounter = styled.div``;
+const AchieveCounter = styled.div`
+  ${anifadeDown};
+  visibility: hidden;
+  opacity: 0;
+`;
 
 const AchieveAwards = styled.div`
   ${flexCenter};
+  visibility: hidden;
+  opacity: 0;
+  ${anifadeDown};
   margin: 50px 0 0;
+
 `;
 
 const AwardsItem = styled.div`

@@ -1,4 +1,4 @@
-import { css } from 'styled-components';
+import { css, keyframes } from 'styled-components';
 
 const theme = {
   webWidth: '1200px',
@@ -18,5 +18,23 @@ export const flexCenter = css`
 export const flexBetweenStart = css`
   display: flex;
   justify-content: space-between;
-  align-items: flex-start
+  align-items: flex-start;
+`;
+
+const fadeDown = keyframes`
+  from {
+    transform: translateY(-20px);
+    visibility: hidden;
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0px);
+    visibility: visible;
+    opacity: 1;
+  }
+`;
+
+export const anifadeDown = css`
+  animation: ${fadeDown} .7s ease-in-out forwards;
+  animation-delay: ${({ aniDelay }) => aniDelay || "0"}; 
 `;
