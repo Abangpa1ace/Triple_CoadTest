@@ -1,8 +1,9 @@
 import React, { useEffect, useState, useCallback } from 'react';
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 import { Paragraph } from '../../../Shared/StyledTags';
 import { achieveTripInfo } from '../MainData';
 import { anifadeDown, flexBetweenStart, flexCenter } from '../../../Styles/theme';
+import CounterNum from './CounterNum';
 
 const DURATION = 7000;
 
@@ -24,7 +25,8 @@ const SectionAchieve = () => {
             ...tripCount,
             [key]: tripCount[key] += 1,
           })
-        }}, stepTime)
+        }
+      }, stepTime)
       return () => clearInterval(intervalCount);
     }, []
   )
@@ -33,7 +35,7 @@ const SectionAchieve = () => {
     for (let key in tripCount) {
       raiseTripCount(key, achieveTripInfo[key].max);
     }
-  }, [tripCount, raiseTripCount]);
+  }, [tripCount]);
 
   return (
     <AchieveContainer>
@@ -50,14 +52,19 @@ const SectionAchieve = () => {
         <AchieveText>
           <AchieveCounter aniDelay=".1s">
             {Object.keys(achieveTripInfo).map((key) => {
-              const { desc } = achieveTripInfo[key];
+              const { desc, max } = achieveTripInfo[key];
               return (
                 <Paragraph
+                  key={key}
                   margin="0 0 20px"
                   color={({ theme }) => theme.black} 
                   fontSize="36px"
                 >
-                  <strong>{tripCount[key]}만 명</strong>의 {desc}
+                  {/* <strong>{tripCount[key]}만 명</strong>의 {desc} */}
+                  <CounterNum 
+                    count={tripCount[key]} 
+                    max={max} 
+                  />의 {desc}
                 </Paragraph>
               )
             })}
@@ -147,4 +154,4 @@ const AwardsItem = styled.div`
   }
 `;
 
-export default SectionAchieve
+export default React.memo(SectionAchieve);
