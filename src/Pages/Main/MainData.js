@@ -1,16 +1,16 @@
 export const achieveTripInfo = {
   people: {
-    title: 'people',
+    type: "person",
     max: 350,
     desc: '사용자'
   },
   review: {
-    title: 'review',
+    type: "stuff",
     max: 21,
     desc: '리뷰'
   },
   program: {
-    title: 'program',
+    type: "stuff",
     max: 650,
     desc: '저장 일정'
   }

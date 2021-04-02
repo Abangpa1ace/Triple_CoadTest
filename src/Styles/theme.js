@@ -23,7 +23,7 @@ export const flexBetweenStart = css`
 
 const fadeDown = keyframes`
   from {
-    transform: translateY(-20px);
+    transform: translateY(20px);
     visibility: hidden;
     opacity: 0;
   }

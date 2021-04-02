@@ -1,42 +1,11 @@
-import React, { useEffect, useState, useCallback } from 'react';
+import React from 'react';
 import styled from 'styled-components';
+import CounterNum from './CounterNum';
 import { Paragraph } from '../../../Shared/StyledTags';
 import { achieveTripInfo } from '../MainData';
 import { anifadeDown, flexBetweenStart, flexCenter } from '../../../Styles/theme';
-import CounterNum from './CounterNum';
-
-const DURATION = 7000;
 
 const SectionAchieve = () => {
-  console.log('render');
-
-  const [tripCount, setTripCount] = useState({
-    people: 0,
-    review: 0,
-    program: 0,
-  })
-
-  const raiseTripCount = useCallback(
-    (key, max) => {
-      const stepTime = DURATION / max;
-      const intervalCount = setInterval(() => {
-        if (tripCount[key] < max) {
-          setTripCount({
-            ...tripCount,
-            [key]: tripCount[key] += 1,
-          })
-        }
-      }, stepTime)
-      return () => clearInterval(intervalCount);
-    }, []
-  )
-
-  useEffect(() => {
-    for (let key in tripCount) {
-      raiseTripCount(key, achieveTripInfo[key].max);
-    }
-  }, [tripCount]);
-
   return (
     <AchieveContainer>
       <AchieveWrapper>
@@ -50,25 +19,25 @@ const SectionAchieve = () => {
           </Paragraph>
         </AchieveImage>
         <AchieveText>
-          <AchieveCounter aniDelay=".1s">
-            {Object.keys(achieveTripInfo).map((key) => {
-              const { desc, max } = achieveTripInfo[key];
-              return (
-                <Paragraph
-                  key={key}
-                  margin="0 0 20px"
-                  color={({ theme }) => theme.black} 
-                  fontSize="36px"
-                >
-                  {/* <strong>{tripCount[key]}만 명</strong>의 {desc} */}
-                  <CounterNum 
-                    count={tripCount[key]} 
-                    max={max} 
-                  />의 {desc}
-                </Paragraph>
-              )
-            })}
-          </AchieveCounter>
+        <AchieveCounter aniDelay=".1s">
+          {Object.keys(achieveTripInfo).map((key) => {
+            const { desc, type, max } = achieveTripInfo[key];
+            return (
+              <Paragraph
+                key={key}
+                margin="0 0 20px"
+                color={({ theme }) => theme.black} 
+                fontSize="36px"
+              >
+                <CounterNum 
+                  desc={desc}
+                  type={type}
+                  max={max}
+                />의 {desc}
+              </Paragraph>
+            )
+          })}
+        </AchieveCounter>
           <AchieveAwards aniDelay=".2s">
             <AwardsItem src={"/Image/play-store@2x.png"}>
               <Paragraph
@@ -79,7 +48,7 @@ const SectionAchieve = () => {
                 올해의 앱 최우수상 수상
               </Paragraph>
             </AwardsItem>
-            <AwardsItem src={"/Image/app-store@2x.png"} last>
+            <AwardsItem src={"/Image/app-store@2x.png"}>
               <Paragraph
                 color={({ theme }) => theme.gray2}
                 fontSize="14px"
@@ -131,21 +100,22 @@ const AchieveCounter = styled.div`
 
 const AchieveAwards = styled.div`
   ${flexCenter};
+  margin: 50px 0 0;
   visibility: hidden;
   opacity: 0;
   ${anifadeDown};
-  margin: 50px 0 0;
-
 `;
 
 const AwardsItem = styled.div`
   ${flexCenter};
   height: 54px;
-  margin-right: ${({ last }) => last ? "0" : "39px"};
+  margin: 0 39px 0 0;
   background-image: ${({ src }) => `url(${src})`};
   background-position: left top;
   background-size: 54px 54px;
   background-repeat: no-repeat;
+
+  &:last-child { margin: 0; };
 
   p {
     padding: 0 0 0 62px;
