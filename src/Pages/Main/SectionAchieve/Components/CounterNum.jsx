@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 
-const DURATION = 3500;
+const DURATION = 3000;
+const SQUARE = 30;
 
 const CounterNum = ({ type, max }) => {
   const [countValue, setCountValue] = useState(0);
@@ -8,7 +9,7 @@ const CounterNum = ({ type, max }) => {
 
   useEffect(() => {
     const stepTime = Math.floor(DURATION / max * delay);
-    setDelay(Math.pow((0.1 + countValue/max ), 30));
+    setDelay(Math.pow((0.1 + countValue/max ), SQUARE));
 
     const intertvalCount = setInterval(() => {
       if (countValue < max) {
@@ -26,4 +27,4 @@ const CounterNum = ({ type, max }) => {
   )
 };
 
-export default React.memo(CounterNum);
+export default CounterNum;

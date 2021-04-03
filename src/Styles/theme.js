@@ -9,6 +9,7 @@ const theme = {
 
 export default theme;
 
+// flex-box
 export const flexCenter = css`
   display: flex;
   justify-content: center;
@@ -21,6 +22,15 @@ export const flexBetweenStart = css`
   align-items: flex-start;
 `;
 
+// background
+export const backgroundImage = css`
+  background-image: ${({ src }) => `url(${src})`};
+  background-position: left top;
+  background-size: ${({ size }) => size || "100% 100%"};
+  background-repeat: no-repeat;
+`;
+
+// animations
 const fadeDown = keyframes`
   from {
     transform: translateY(20px);
@@ -34,7 +44,9 @@ const fadeDown = keyframes`
   }
 `;
 
-export const anifadeDown = css`
+export const aniFadeDown = css`
+  visibility: hidden;
+  opacity: 0;
   animation: ${fadeDown} .7s ease-in-out forwards;
   animation-delay: ${({ aniDelay }) => aniDelay || "0"}; 
 `;

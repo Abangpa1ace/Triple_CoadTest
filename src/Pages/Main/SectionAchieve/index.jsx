@@ -1,16 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
-import CounterNum from './CounterNum';
+import CounterNum from './Components/CounterNum';
+import AwardsItem from './Components/AwardsItem';
 import { Paragraph } from '../../../Shared/StyledTags';
-import { achieveTripInfo } from '../MainData';
-import { anifadeDown, flexBetweenStart, flexCenter } from '../../../Styles/theme';
+import { achieveCountData, achieveAwardData } from '../MainData';
+import { aniFadeDown, backgroundImage, flexCenter } from '../../../Styles/theme';
 
 const SectionAchieve = () => {
   return (
     <AchieveContainer>
       <AchieveWrapper>
-        <AchieveImage>
-          <img src="/Image/triple@2x.png" alt="achieve-triple-img" />
+        <AchieveImage src="/Image/triple@2x.png">
           <Paragraph
             color={({ theme }) => theme.gray1}
             fontSize="15px"
@@ -18,10 +18,9 @@ const SectionAchieve = () => {
             {new Date().getFullYear()}년 {new Date().getMonth()}월 기준
           </Paragraph>
         </AchieveImage>
-        <AchieveText>
         <AchieveCounter aniDelay=".1s">
-          {Object.keys(achieveTripInfo).map((key) => {
-            const { desc, type, max } = achieveTripInfo[key];
+          {Object.keys(achieveCountData).map((key) => {
+            const { desc, type, max } = achieveCountData[key];
             return (
               <Paragraph
                 key={key}
@@ -38,27 +37,12 @@ const SectionAchieve = () => {
             )
           })}
         </AchieveCounter>
-          <AchieveAwards aniDelay=".2s">
-            <AwardsItem src={"/Image/play-store@2x.png"}>
-              <Paragraph
-                color={({ theme }) => theme.gray2}
-                fontSize="14px"
-              >
-                2018 구글 플레이스토어<br />
-                올해의 앱 최우수상 수상
-              </Paragraph>
-            </AwardsItem>
-            <AwardsItem src={"/Image/app-store@2x.png"}>
-              <Paragraph
-                color={({ theme }) => theme.gray2}
-                fontSize="14px"
-              >
-                2018 애플 앱스토어<br />
-                오늘의 여행앱 선정
-              </Paragraph>
-            </AwardsItem>
-          </AchieveAwards>
-        </AchieveText>
+          <AchieveAwardData aniDelay=".2s">
+            {achieveAwardData.map((award) => {
+              const { id, store, image, desc } = award;
+              return <AwardsItem key={id} store={store} image={image} desc={desc} />
+            })}
+          </AchieveAwardData>
       </AchieveWrapper>
     </AchieveContainer>
   )
@@ -66,62 +50,36 @@ const SectionAchieve = () => {
 
 const AchieveContainer = styled.section`
   min-width: ${({ theme }) => theme.webWidth};    // Requirements
-  padding: 140px 0 100px;
   background: #ffffff;
 `;
 
 const AchieveWrapper = styled.div`
-  ${flexBetweenStart};
   width: 1040px;
   margin: 0 auto;
 `;
 
 const AchieveImage = styled.div`
-  ${anifadeDown};
+  ${backgroundImage};
+  ${aniFadeDown};
+  position: absolute;
+  top: 150px;
   width: 400px;
+  height: 330px;
+  padding: 280px 0 0;
   text-align: center;
-  visibility: hidden;
-  opacity: 0;
-
-  img {
-    width: 100%;
-  }
-`;
-
-const AchieveText = styled.div`
-  margin: 0 0 0 40px;
 `;
 
 const AchieveCounter = styled.div`
-  ${anifadeDown};
-  visibility: hidden;
-  opacity: 0;
+  ${aniFadeDown};
+  margin: 0 0 0 623px;
+  padding: 150px 0 0;
 `;
 
-const AchieveAwards = styled.div`
+const AchieveAwardData = styled.ul`
   ${flexCenter};
-  margin: 50px 0 0;
-  visibility: hidden;
-  opacity: 0;
-  ${anifadeDown};
+  ${aniFadeDown};
+  margin: 50px 0 0 623px;
+  padding: 0 0 140px;
 `;
 
-const AwardsItem = styled.div`
-  ${flexCenter};
-  height: 54px;
-  margin: 0 39px 0 0;
-  background-image: ${({ src }) => `url(${src})`};
-  background-position: left top;
-  background-size: 54px 54px;
-  background-repeat: no-repeat;
-
-  &:last-child { margin: 0; };
-
-  p {
-    padding: 0 0 0 62px;
-    line-height: 22px;
-    font-weight: bold;
-  }
-`;
-
-export default React.memo(SectionAchieve);
+export default SectionAchieve;
