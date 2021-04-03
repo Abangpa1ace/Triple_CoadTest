@@ -31,7 +31,7 @@ export const backgroundImage = css`
 `;
 
 // animations
-const fadeDown = keyframes`
+const fadeUp = keyframes`
   from {
     transform: translateY(20px);
     visibility: hidden;
@@ -44,9 +44,9 @@ const fadeDown = keyframes`
   }
 `;
 
-export const aniFadeDown = css`
+export const aniFadeUp = css`
   visibility: hidden;
   opacity: 0;
-  animation: ${fadeDown} .7s ease-in-out forwards;
+  animation: ${fadeUp} .7s ease-in-out forwards;
   animation-delay: ${({ aniDelay }) => aniDelay || "0"}; 
 `;

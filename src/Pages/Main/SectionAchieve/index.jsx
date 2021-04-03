@@ -4,7 +4,7 @@ import CounterNum from './Components/CounterNum';
 import AwardsItem from './Components/AwardsItem';
 import { Paragraph } from '../../../Shared/StyledTags';
 import { achieveCountData, achieveAwardData } from '../MainData';
-import { aniFadeDown, backgroundImage, flexCenter } from '../../../Styles/theme';
+import { aniFadeUp, backgroundImage, flexCenter } from '../../../Styles/theme';
 
 const SectionAchieve = () => {
   return (
@@ -60,7 +60,7 @@ const AchieveWrapper = styled.div`
 
 const AchieveImage = styled.div`
   ${backgroundImage};
-  ${aniFadeDown};
+  ${aniFadeUp};
   position: absolute;
   top: 150px;
   width: 400px;
@@ -70,14 +70,14 @@ const AchieveImage = styled.div`
 `;
 
 const AchieveCounter = styled.div`
-  ${aniFadeDown};
+  ${aniFadeUp};
   margin: 0 0 0 623px;
   padding: 150px 0 0;
 `;
 
 const AchieveAwardData = styled.ul`
   ${flexCenter};
-  ${aniFadeDown};
+  ${aniFadeUp};
   margin: 50px 0 0 623px;
   padding: 0 0 140px;
 `;
