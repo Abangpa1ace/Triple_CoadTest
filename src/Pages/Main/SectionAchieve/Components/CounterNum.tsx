@@ -3,7 +3,12 @@ import React, { useEffect, useState } from 'react'
 const DURATION = 3000;
 const SQUARE = 30;
 
-const CounterNum = ({ type, max }) => {
+interface CounterProps {
+  type: string;
+  max: number;
+}
+
+const CounterNum: React.FC<CounterProps> = ({ type, max }) => {
   const [countValue, setCountValue] = useState(0);
   const [delay, setDelay] = useState(1);
 

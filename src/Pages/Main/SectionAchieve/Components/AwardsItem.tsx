@@ -1,9 +1,15 @@
 import React from 'react'
 import styled from 'styled-components';
 import { Paragraph } from '../../../../Shared/StyledTags';
-import { backgroundImage, flexCenter } from '../../../../Styles/theme';
+import { backgroundImage, flexCenter } from '../../../../Styles/theme/theme';
 
-const AwardsItem = ({ store, image, desc}) => {
+interface AwardsProps {
+  store: string;
+  image: string;
+  desc: string;
+}
+
+const AwardsItem: React.FC<AwardsProps> = ({ store, image, desc }) => {
   return (
     <ItemContainer src={image} size="54px 54px" >
       <Paragraph

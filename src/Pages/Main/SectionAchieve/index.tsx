@@ -4,9 +4,9 @@ import CounterNum from './Components/CounterNum';
 import AwardsItem from './Components/AwardsItem';
 import { Paragraph } from '../../../Shared/StyledTags';
 import { achieveCountData, achieveAwardData } from '../MainData';
-import { aniFadeUp, backgroundImage, flexCenter } from '../../../Styles/theme';
+import { aniFadeUp, backgroundImage, flexCenter } from '../../../Styles/theme/theme';
 
-const SectionAchieve = () => {
+const SectionAchieve: React.FC = () => {
   return (
     <AchieveContainer>
       <AchieveWrapper>
