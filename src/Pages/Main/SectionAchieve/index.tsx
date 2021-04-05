@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import CounterNum from './Components/CounterNum';
 import AwardsItem from './Components/AwardsItem';
 import { Paragraph } from '../../../Shared/StyledTags';
+import { ICounterProps } from '../Main.types';
 import { achieveCountData, achieveAwardData } from '../MainData';
 import { aniFadeUp, backgroundImage, flexCenter } from '../../../Styles/theme/theme';
 
@@ -12,7 +13,7 @@ const SectionAchieve: React.FC = () => {
       <AchieveWrapper>
         <AchieveImage src="/Image/triple@2x.png">
           <Paragraph
-            color={({ theme }) => theme.gray1}
+            color={({ theme }: any) => theme.gray1}
             fontSize="15px"
           >
             {new Date().getFullYear()}년 {new Date().getMonth()}월 기준
@@ -20,18 +21,18 @@ const SectionAchieve: React.FC = () => {
         </AchieveImage>
         <AchieveCounter aniDelay=".1s">
           {Object.keys(achieveCountData).map((key) => {
-            const { desc, type, max } = achieveCountData[key];
+            const { type, max, desc }: ICounterProps = achieveCountData[key as keyof typeof achieveCountData];
             return (
               <Paragraph
                 key={key}
                 margin="0 0 20px"
-                color={({ theme }) => theme.black} 
+                color={({ theme }: any) => theme.black} 
                 fontSize="36px"
               >
                 <CounterNum 
                   desc={desc}
-                  type={type}
                   max={max}
+                  type={type}
                 />의 {desc}
               </Paragraph>
             )

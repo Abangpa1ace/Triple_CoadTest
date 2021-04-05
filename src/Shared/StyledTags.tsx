@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import { ParagraphT } from './StyledTags.types';
+import { IParagraph } from './StyledTags.types';
 
-const StyledParagraph = styled.p<ParagraphT>`
+const StyledParagraph = styled.p<IParagraph>`
   margin: ${({ margin }) => margin};
   padding: ${({ padding }) => padding};
   color: ${({ color }) => color || "#000000" };
@@ -12,7 +12,7 @@ const StyledParagraph = styled.p<ParagraphT>`
   }
 `;
 
-export const Paragraph: React.FC<ParagraphT> = ({
+export const Paragraph: React.FC<IParagraph> = ({
   children, margin, padding, color, colorHov, fontSize
 }) => {
   return (

@@ -1,15 +1,15 @@
-export interface themeDefaultT {
+export interface IThemeDefault {
   webWidth: string;
   gray1: string;
   gray2: string;
   black: string;
 }
 
-export interface backgroundImageT {
+export interface IBackgroundImage {
   src: string;
-  size: string;
+  size?: string;
 }
 
-export interface aniFadeUpT {
-  aniDelay: string;
+export interface IAniFadeUp {
+  aniDelay?: string;
 }

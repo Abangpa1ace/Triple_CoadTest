@@ -1,11 +1,10 @@
 import React from "react";
 
-export interface ParagraphT {
-  children: React.ReactNode;
-  theme?: object | string;
-  margin?: object | string;
-  padding?: object | string;
-  color?: object | string;
-  fontSize?: object | string;
-  colorHov?: object | string;
+export interface IParagraph {
+  children?: React.ReactNode;
+  margin?: any;
+  padding?: any;
+  color?: any;
+  fontSize?: any;
+  colorHov?: any;
 }

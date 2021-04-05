@@ -1,19 +1,14 @@
 import React from 'react'
 import styled from 'styled-components';
 import { Paragraph } from '../../../../Shared/StyledTags';
+import { IAwardProps } from '../../Main.types';
 import { backgroundImage, flexCenter } from '../../../../Styles/theme/theme';
 
-interface AwardsProps {
-  store: string;
-  image: string;
-  desc: string;
-}
-
-const AwardsItem: React.FC<AwardsProps> = ({ store, image, desc }) => {
+const AwardsItem: React.FC<IAwardProps> = ({ store, image, desc }) => {
   return (
     <ItemContainer src={image} size="54px 54px" >
       <Paragraph
-        color={({ theme }) => theme.gray2}
+        color={({ theme }: any) => theme.gray2}
         fontSize="14px"
       >
         2018 {store}<br />
