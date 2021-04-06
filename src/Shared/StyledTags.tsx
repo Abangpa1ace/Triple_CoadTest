@@ -12,7 +12,7 @@ const StyledParagraph = styled.p<IParagraph>`
   }
 `;
 
-export const Paragraph: React.FC<IParagraph> = ({
+export const Paragraph: React.FC<Partial<IParagraph>> = ({
   children, margin, padding, color, colorHov, fontSize
 }) => {
   return (
