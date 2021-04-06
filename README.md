@@ -27,5 +27,5 @@
 4. 컴포넌트 재활용 : 반복요소(`<CounterNum>` 카운트업 숫자부분, `<AwardsItem>` 수상내용) 해당, 배열 데이터로 맵핑 및 props 하달
 5. CountUp 로직구현 : 0부터 max값(props) 로 1씩 인터벌 증가, stepTime은 (전체시간 / max) 로 모든 값 증가가 동일하게 마무리
 6. CountUp Delay 로직추가 : stepTime을 지수증가(Math.pow())하여, 뒤로 갈수록 증가속도가 느려짐
-7. Typescript 변환 : 추가세팅 진행(jsx => tsx, tsconfig 추가, type/interface 추가)<br />
+7. Typescript 변환 : jsx => tsx 변환, tsconfig 추가, type/interface 추가, 타입 설정<br />
     => _"타입스크립트는 1주일 학습내용 기반으로 연습삼아 적용해보았습니다. 아직 사용하는게 다소 어색한 것 같습니다."_
