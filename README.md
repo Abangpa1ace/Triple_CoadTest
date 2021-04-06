@@ -25,7 +25,7 @@
 2. Styled-Components 적용 : CSS-in-JS 패턴, 공통속성 분류(화면폭 1200px, 폰트색, fadeUp 애니메이션 등)
 3. Fade-Up 애니메이션 : 공통 애니메이션에 700ms duration 적용, props(aniDelay) 를 통해 지연시간(100ms, 200ms) 설정
 4. 컴포넌트 재활용 : 반복요소(`<CounterNum>` 카운트업 숫자, `<AwardsItem>` 수상내용) 해당, 배열 데이터 맵핑 및 props 하달
-5. CountUp 로직구현 : 0부터 max값(props)까지 1씩 인터벌 증가, stepTime은 (전체시간 / max) 로 모든 증가가 동일하게 마무리
+5. CountUp 로직구현 : 0부터 max값(props)까지 1씩 인터벌 증가, stepTime은 (전체시간 / max) 로 모든 증가가 동시 종료
 6. CountUp Delay 로직추가 : stepTime을 지수증가(Math.pow())하여, 뒤로 갈수록 증가속도가 느려짐
 7. Typescript 변환 : jsx => tsx 변환, tsconfig 추가, type/interface 추가, 타입 설정<br />
     => _"타입스크립트는 1주일 학습내용 기반으로 연습삼아 적용해보았습니다. 아직 사용하는게 다소 어색한 것 같습니다."_
