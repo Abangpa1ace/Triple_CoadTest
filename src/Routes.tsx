@@ -1,11 +1,11 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
-import GlobalReset from './Styles/reset';
-import theme from './Styles/theme';
+import GlobalReset from './Styles/reset/reset';
+import theme from './Styles/theme/theme';
 import Main from './Pages/Main';
 
-function Routes() {
+const Routes: React.FC = () => {
   return (
     <Router>
       <ThemeProvider theme={theme}>

@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
+import { ICounterProps } from '../../Main.types';
 
-const DURATION = 3000;
-const SQUARE = 30;
+const DURATION = 2000;
+const SQUARE = 40;
 
-const CounterNum = ({ type, max }) => {
+const CounterNum: React.FC<ICounterProps> = ({ type, max }) => {
   const [countValue, setCountValue] = useState(0);
   const [delay, setDelay] = useState(1);
 

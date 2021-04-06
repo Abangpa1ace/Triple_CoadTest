@@ -1,6 +1,7 @@
 import { css, keyframes } from 'styled-components';
+import { IThemeDefault, IBackgroundImage, IAniFadeUp } from './theme.types';
 
-const theme = {
+const theme: IThemeDefault = {
   webWidth: '1200px',
   gray1: "rgba(58, 58, 58, 0.7)",
   gray2: "rgba(58, 58, 58, 0.8)",
@@ -23,7 +24,7 @@ export const flexBetweenStart = css`
 `;
 
 // background
-export const backgroundImage = css`
+export const backgroundImage = css<IBackgroundImage>`
   background-image: ${({ src }) => `url(${src})`};
   background-position: left top;
   background-size: ${({ size }) => size || "100% 100%"};
@@ -44,7 +45,7 @@ const fadeUp = keyframes`
   }
 `;
 
-export const aniFadeUp = css`
+export const aniFadeUp = css<IAniFadeUp>`
   visibility: hidden;
   opacity: 0;
   animation: ${fadeUp} .7s ease-in-out forwards;

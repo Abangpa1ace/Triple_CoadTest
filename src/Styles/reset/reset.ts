@@ -1,13 +1,14 @@
 import { createGlobalStyle } from 'styled-components';
+import { normalize } from 'styled-normalize';
 
 const GlobalReset = createGlobalStyle`
+  ${normalize};
 
   * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     line-height: 1;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
   }
 
   ul, li {
